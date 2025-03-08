@@ -17,3 +17,10 @@ Content-Type: application/json
 {
     "name": "Ethemski"
 }
+
+### 
+DELETE http://localhost:8081/api/data2
+
+
+###
+GET http://localhost:8081/api/data2

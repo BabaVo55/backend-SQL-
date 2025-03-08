@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8080;
             //  just before the request hit the backend 
 app.use(express.json());
 
-let data = {name:['Ethem']}
+
 
 // TYPE1
 // Website endpoints -> html to be sent back
@@ -35,7 +35,7 @@ app.get('/ethemswebsite/dashboard', (req, res) => {
 
 app.get('/api/data', (req, res) => {
     console.log('this is for data')
-    res.send('which end is this')
+    res.send(`<h1>hello bruggg</h1>`)
 })
 
 // someone wants to create a user (for example when they 
@@ -43,6 +43,9 @@ app.get('/api/data', (req, res) => {
 // the user clicks the sign up button after their credentials,
     // and their browser is wired up to send out a network
     // request to the server to handle that actions
+    
+let data = {name:['Ethem']}
+
 app.post('/api/data2', (req, res) => {
     const newData = req.body;
     console.log(newData)
@@ -50,8 +53,18 @@ app.post('/api/data2', (req, res) => {
     data.name.push(newData.name)
     console.log(data)
     res.send(`<h1>${data.name}</h1>`)
-    res.sendStatus(201);
- 
+    // res.sendStatus(201);
+})
+
+app.delete('/api/data2', (req, res) => {
+    data.name.pop()
+    res.send('something just got popped')
+})
+
+app.get('/api/data2', (req, res) => {
+    const newData = req.body;
+    res.send(`<h2 style="color: red">${data.name}</h2>`)
+    // res.sendStatus(201);
 })
 
 
