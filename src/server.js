@@ -8,9 +8,14 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-let data = {
-    name: 'Ethem'
-}
+//Middleware;
+    //Configures our server to intercept incoming requests and 
+        // interprets it. Security measure in between the interactions
+            //  just before the request hit the backend 
+app.use(express.json());
+
+let data = {name:['Ethem']}
+
 // TYPE1
 // Website endpoints -> html to be sent back
 
@@ -38,9 +43,14 @@ app.get('/api/data', (req, res) => {
 // the user clicks the sign up button after their credentials,
     // and their browser is wired up to send out a network
     // request to the server to handle that actions
-app.put('api/data2', (req, res) => {
-    const newData = req.body
-
+app.post('/api/data2', (req, res) => {
+    const newData = req.body;
+    console.log(newData)
+    console.log(data)
+    data.name.push(newData.name)
+    console.log(data)
+    res.send(`<h1>${data.name}</h1>`)
+    res.sendStatus(201);
  
 })
 

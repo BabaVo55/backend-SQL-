@@ -11,9 +11,9 @@ GET http://localhost:8081/api/data
 
 
 ### Data Endpoint for adding a user
-POST http://localhost:8081/api/data
+POST http://localhost:8081/api/data2
 Content-Type: application/json
 
 {
-
+    "name": "Ethemski"
 }
