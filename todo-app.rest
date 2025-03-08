@@ -24,24 +24,3 @@ DELETE http://localhost:8081/api/data2
 
 ###
 GET http://localhost:8081/api/data2
-
-### 
-DELETE http://localhost:8081/api/data2
-
-
-###
-GET http://localhost:8081/api/data2
-
-### 
-DELETE http://localhost:8081/api/data2
-
-
-###
-GET http://localhost:8081/api/data2
-
-### 
-DELETE http://localhost:8081/api/data2
-
-
-###
-GET http://localhost:8081/api/data2
