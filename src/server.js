@@ -24,13 +24,21 @@ app.get('/', (req, res) => {
     res.send(`
                 <body style='background: pink; color: blue'>
                     <p style="color: red; font">${JSON.stringify(data)}</p>
+                    <a href="/ethemswebsite/dashboard">Click clock</a>
                 </body>
             `)
 })
 // testing ignore
 app.get('/ethemswebsite/dashboard', (req, res) => {
     console.log('dashboard endpoint found')
-    res.send('<h1>Dashboard</h1><button>Press me</button>')
+
+    res.send(`
+            <body style="display:flex; flex-direction: column">
+                <h1>Dashboard</h1>
+                <button style="width: 200px">Press me</button>
+                <a href="/">back</a>
+            </body>
+        `)
 })
 
 app.get('/api/data', (req, res) => {
@@ -48,10 +56,14 @@ let data = {name:['Ethem']}
 
 app.post('/api/data2', (req, res) => {
     const newData = req.body;
+
     console.log(newData)
     console.log(data)
+
     data.name.push(newData.name)
+
     console.log(data)
+
     res.send(`<h1>${data.name}</h1>`)
     // res.sendStatus(201);
 })
