@@ -37,6 +37,7 @@ app.get('/ethemswebsite/dashboard', (req, res) => {
                 <h1>Dashboard</h1>
                 <button style="width: 200px">Press me</button>
                 <a href="/">back</a>
+                <script>console.log('testing inline scripting')</script>
             </body>
         `)
 })
