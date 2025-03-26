@@ -8,7 +8,11 @@ const router = express.Router();
 
 
 router.post('/register', (req, res) => {
+    // const {username, password} = req.body
 
+    // db.prepare(`
+    //         INSERT 
+    //     `)
 })
 
 
