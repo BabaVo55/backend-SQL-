@@ -2,8 +2,8 @@
 import express from 'express';
 import path, {dirname} from 'path';
 import {fileURLToPath} from 'url';
-import authRoutes from './routes/authRoutes.js';
-import todoRoutes from './routes/todoRoutes.js';
+// import authRoutes from './routes/authRoutes.js';
+// import todoRoutes from './routes/todoRoutes.js';
 
 const app = express();
 
@@ -18,6 +18,7 @@ const __dirname = dirname(__filename)
 app.use(express.json)
 // Serves the HTML file from the /public directory
 // Tells express to serve all file from the public folder as static assets/ file.
+app.use(express.static(path.join(__dirname, "../public")))
 
 // Serving up the HTML file from th  e /public directory
 app.get('/', (req, res) => {
@@ -26,9 +27,9 @@ app.get('/', (req, res) => {
 console.log('yooo g')
 
 //routes
-app.use(express.static(path.join(__dirname, "../public")))
-app.use('/auth', authRoutes)
-app.use('/todos', todoRoutes)
+
+// app.use('/api', authRoutes)
+// app.use('/todos', todoRoutes)
 
 app.listen(PORT, () => {
     console.log('backend connected')

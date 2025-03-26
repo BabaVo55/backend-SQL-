@@ -17,10 +17,12 @@ db.exec(`
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
             task TEXT,
-            completed BOOLEAN DEFAULT,
+            completed INTEGER DEFAULT 0,
             FOREIGN KEY(user_id) REFERENCES users(id) 
         )
 `)
 
 
 export default db;
+
+
