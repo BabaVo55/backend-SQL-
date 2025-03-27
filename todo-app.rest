@@ -30,15 +30,18 @@ GET http://localhost:8081/api/data2
 
 
 ### GET/
-GET http://localhost:3001
+GET http://localhost:8081
 
 
 ###
-POST http://localhost:3001/auth/register
+POST http://localhost:8081/auth/register
 Content-Type: application/json
 
 {
-    "username": "",
-    "password": ""
+    "username": "hello@gmail.com",
+    "password": "123123123"
 }
 
+
+###
+POST http://localhost:8081/auth/loign
