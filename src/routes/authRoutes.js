@@ -11,11 +11,11 @@ router.post('/register',(req, res) => {
     const hashedPassword = bcrypt.hashSync(password, 8);
     console.log(hashedPassword)
     console.log(username, password)
-    res.send(`
-        <h1>${username}</h1>
-        <p>${password}</p>
-        <p>${hashedPassword}</p>
-        `)
+    // res.send(`
+    //     <h1>${username}</h1>
+    //     <p>${password}</p>
+    //     <p>${hashedPassword}</p>
+    //     `)
     // save new user and password to database   
     try {
         const insertUser = db.prepare(`INSERT INTO users (username, password)
@@ -29,6 +29,11 @@ router.post('/register',(req, res) => {
         insertTodo.run(result.lastInsertRowid, defaultTodo);
 
         // Finally we create a token
+        const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET,
+             {expiresIn: '24h'});
+        
+        res.json({token})
+        res.sendStatus(200)
 
     } catch(error){
         console.log(error.message);
@@ -49,6 +54,20 @@ router.post('/register',(req, res) => {
 
 router.post('/login', (req, res) => {
     const {username, password} = req.body 
+    try {
+
+        const getUser = db.prepare('SELECT * FROM users WHERE username = ?');
+        const user = getUser.get(username)
+
+        !user && res.status(404).send({message: 'Username false'})
+
+        // const validPassword = getUser.get
+
+
+    }catch(error){
+        console.log(error);
+        res.sendStatus(503)
+    }
 });
 
 export default router;
