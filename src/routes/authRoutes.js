@@ -18,6 +18,17 @@ router.post('/register',(req, res) => {
         `)
     // save new user and password to database   
     try {
+        const insertUser = db.prepare(`INSERT INTO users (username, password)
+            VALUES (?, ?)`) // we leave values blank until we run the next step which is to insert.
+        const result = insertUser.run(username, hashedPassword);
+        
+        // When users are create a default todo for them to experiment with.
+        const defaultTodo = `Hello Add you first Todo!!!`
+        const insertTodo = db.prepare(`INSERT INTO todos (user_id, task)
+            VALUES (?, ?)`)
+        insertTodo.run(result.lastInsertRowid, defaultTodo);
+
+        // Finally we create a token
 
     } catch(error){
         console.log(error.message);
