@@ -39,9 +39,6 @@ router.post('/register',(req, res) => {
         console.log(error.message);
         res.sendStatus(500);
     }   
-        
-        
-        
     res.status(202)
 })
 
