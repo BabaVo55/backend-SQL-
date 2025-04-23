@@ -37,7 +37,7 @@ router.post('/register',(req, res) => {
 
     } catch(error){
         console.log(error.message);
-        res.sendStatus(500);
+        res.sendStatus(503);
     }   
     res.status(202)
 })
@@ -54,13 +54,15 @@ router.post('/login', (req, res) => {
     try {
 
         const getUser = db.prepare('SELECT * FROM users WHERE username = ?');
+        
         const user = getUser.get(username)
+        !user && res.status(404).send({message: 'Username false'});
 
-        !user && res.status(404).send({message: 'Username false'})
-
+        const passwordIsValid = bcrypt.compareSync(password, user.password);
+        !passwordIsValid && res.status(401).send({message: 'Password Incorrect'});
         // const validPassword = getUser.get
 
-
+        res.status(200).send({message: 'username correct'})
     }catch(error){
         console.log(error);
         res.sendStatus(503)
