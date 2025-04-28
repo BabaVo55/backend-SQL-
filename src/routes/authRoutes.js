@@ -51,6 +51,8 @@ router.post('/register',(req, res) => {
 
 router.post('/login', (req, res) => {
     const {username, password} = req.body 
+    // WHEN EVER WE INTERACT WITH THE DATA BASE WE THROW THAT INTO
+        // A TRY - CATCH BLOCK in order to CATCH ANTICIPATED ERRORS
     try {
 
         const getUser = db.prepare('SELECT * FROM users WHERE username = ?');

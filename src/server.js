@@ -1,12 +1,14 @@
 import express from 'express';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
+import authMiddleware from './middleware/authMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT2 || 5000;
 
 import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
+import authMiddleware from './middleware/authMiddleware.js';
 // import authMiddleware from './middleware/authMiddleware.js';
 
 // Get the file path from the URL of the current module;
@@ -35,7 +37,7 @@ app.get('/', (req, res) => {
 
 // ROutes
 app.use('/auth',  authRoutes)
-app.use('/todos',  todoRoutes)
+app.use('/todos', authMiddleware, todoRoutes)
 
 
 
