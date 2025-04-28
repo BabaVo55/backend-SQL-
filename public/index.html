@@ -51,7 +51,8 @@
 
     </main>
 </body>
-<button style="margin-top: 10px" onClick={deleteAll}>delete credentials</button>
+// My Own perfect LOGICO
+<button style="margin-top: 10px" onClick="deleteEntry()">delete credentials</button>
 
 <script>
     let token = localStorage.getItem('token')
@@ -87,9 +88,7 @@
 
         await fetchTodos()
     }
-    function deleteEntry(){
-        localStorage.clear()
-    }
+
     function updateHeaderText() {
         const todosLength = todos.length
         const newString = todos.length === 1 ?
@@ -244,6 +243,10 @@
         }
 
 
+    }
+
+    function deleteEntry(){
+        localStorage.clear()
     }
 
     function logout() {

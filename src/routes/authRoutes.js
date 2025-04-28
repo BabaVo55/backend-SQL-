@@ -17,6 +17,7 @@ router.post('/register',(req, res) => {
     //     <p>${hashedPassword}</p>
     //     `)
     // save new user and password to database   
+    // i need extra attention her for learning the sqlite commands;
     try {
         const insertUser = db.prepare(`INSERT INTO users (username, password)
             VALUES (?, ?)`) // we leave values blank until we run the next step which is to insert.
@@ -26,7 +27,7 @@ router.post('/register',(req, res) => {
         const defaultTodo = `Hello Add you first Todo!!!`
         const insertTodo = db.prepare(`INSERT INTO todos (user_id, task)
             VALUES (?, ?)`)
-        insertTodo.run(result.lastInsertRowi    d, defaultTodo);
+        insertTodo.run(result.lastInsertRowid, defaultTodo);
 
         // Finally we create a token
         const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET,

@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
 
 // ROutes
 app.use('/auth',  authRoutes)
+// auth middleware intercepts all requests directed to '/todo' route - endpoint
 app.use('/todos', authMiddleware, todoRoutes)
 
 
