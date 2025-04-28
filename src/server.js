@@ -1,7 +1,6 @@
 import express from 'express';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
-import authMiddleware from './middleware/authMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT2 || 5000;

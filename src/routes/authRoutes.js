@@ -26,7 +26,7 @@ router.post('/register',(req, res) => {
         const defaultTodo = `Hello Add you first Todo!!!`
         const insertTodo = db.prepare(`INSERT INTO todos (user_id, task)
             VALUES (?, ?)`)
-        insertTodo.run(result.lastInsertRowid, defaultTodo);
+        insertTodo.run(result.lastInsertRowi    d, defaultTodo);
 
         // Finally we create a token
         const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET,

@@ -51,6 +51,8 @@
 
     </main>
 </body>
+<button style="margin-top: 10px" onClick={deleteAll}>delete credentials</button>
+
 <script>
     let token = localStorage.getItem('token')
 
@@ -74,8 +76,7 @@
     const registerBtn = document.getElementById('registerBtn')
     const authBtn = document.getElementById('authBtn')
     const addTodoBtn = document.getElementById('addTodoBtn')
-    // const deleteBtn = document.getElementById('')
-    // const updateBtn = 
+
 
     // PAGE RENDERING LOGIC
     async function showDashboard() {
@@ -86,7 +87,9 @@
 
         await fetchTodos()
     }
-
+    function deleteEntry(){
+        localStorage.clear()
+    }
     function updateHeaderText() {
         const todosLength = todos.length
         const newString = todos.length === 1 ?
@@ -181,7 +184,7 @@
 
         // guard clauses... if authenticating, return
         if (
-            // isLoading ||
+            isLoading ||
             isAuthenticating ||
             !emailVal ||
             !passVal ||
