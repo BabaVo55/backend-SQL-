@@ -51,3 +51,8 @@ Content-Type: application/json
     "username": "hello@gmail.com",
     "password": "123123123"
 }
+
+
+### Fetch all todos GET / Todos (protected)
+GET http://localhost:8081/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1OTQ4MzE4LCJleHAiOjE3NDYwMzQ3MTh9.yaPFDgHJDh_b4id62Epbk9GdLvP2xGVzCegTVekYvGE

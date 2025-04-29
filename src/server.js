@@ -1,14 +1,21 @@
+// Server imports
 import express from 'express';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
-
-const app = express();
-const PORT = process.env.PORT2 || 5000;
-
+//           ----------- 
 import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
 import authMiddleware from './middleware/authMiddleware.js';
-// import authMiddleware from './middleware/authMiddleware.js';
+
+//           -----------
+// Server Setup
+const app = express();
+const PORT = process.env.PORT2 || 5000;
+
+
+//---------------------------------------
+
+// Html, Css & fantaCss path serving.
 
 // Get the file path from the URL of the current module;
 const __filename = fileURLToPath(import.meta.url);
@@ -31,6 +38,7 @@ app.get('/', (req, res) => {
 
 
 
+//---------------------------------------
 
 
 
@@ -41,9 +49,10 @@ app.use('/todos', authMiddleware, todoRoutes)
 
 
 
+//---------------------------------------
 
 
-
+// Livelihood of Server!!!
 app.listen(PORT, () => {
     console.log('hello backend: Port: ' + PORT)
 })
