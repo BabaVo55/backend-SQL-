@@ -12,18 +12,20 @@ router.get('/', (req, res) => {
    
 // Create new Todo
 router.post('/', (req, res) => {
-    let {tast} = req.body;
+    let {task} = req.body;
 
-    const insertTodo = db.prepare(`INSERT INTO todo (user_id, task) VALUES
+    const insertTodo = db.prepare(`INSERT INTO todos (user_id, task) VALUES
         (?, ?)`)
-        insertTodo.run(req.userId, task);
+        const result = insertTodo.run(req.userId, task);
 
-        res.json({id: insertTodo.lastID, task, completed: 0})
+        res.json({id: result.lastInsertRowid, task, completed: 0})
 })
 
 // Update a todo
 router.put('/:id', (req, res) => {
-
+    const { completed } = req.body; // within the fetch request body
+    const { id } = req.params; // within the Dynamic Url
+    const { page } = req.query // Proceeding the ? mark in the Url e.g ?page=3
 })
 
 router.delete('/:id', (req,res) => {

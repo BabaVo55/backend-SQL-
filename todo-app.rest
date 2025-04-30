@@ -53,6 +53,26 @@ Content-Type: application/json
 }
 
 
-### Fetch all todos GET / Todos (protected)
+### Fetch all todos GET /todos (protected)
 GET http://localhost:8081/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1OTQ4MzE4LCJleHAiOjE3NDYwMzQ3MTh9.yaPFDgHJDh_b4id62Epbk9GdLvP2xGVzCegTVekYvGE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDE2ODAxLCJleHAiOjE3NDYxMDMyMDF9.Qc_KY8zHuC3Sdc3luiSw3WWpgR1a0uyIXwuUdMiv1ME
+
+### Create a new todo POST /todos
+POST http://localhost:8081/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDE2ODAxLCJleHAiOjE3NDYxMDMyMDF9.Qc_KY8zHuC3Sdc3luiSw3WWpgR1a0uyIXwuUdMiv1ME
+Content-Type: application/json
+
+{
+    "task": "Finish coding the projects"
+}
+
+### Edit a todo
+PUT http://localhost:8081/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDE2ODAxLCJleHAiOjE3NDYxMDMyMDF9.Qc_KY8zHuC3Sdc3luiSw3WWpgR1a0uyIXwuUdMiv1ME
+Content-Type: application/json
+
+{
+    "completed": 1
+}
+
+
