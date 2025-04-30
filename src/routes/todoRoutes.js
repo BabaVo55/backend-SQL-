@@ -26,6 +26,11 @@ router.put('/:id', (req, res) => {
     const { completed } = req.body; // within the fetch request body
     const { id } = req.params; // within the Dynamic Url
     const { page } = req.query // Proceeding the ? mark in the Url e.g ?page=3
+
+    const updatedTodo = db.prepare(`UPDATE todos SET completed = ? WHERE id = ?`)
+    updatedTodo.run(completed, id);
+
+    res.json({message: "Todo completed"})
 })
 
 router.delete('/:id', (req,res) => {
