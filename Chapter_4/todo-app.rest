@@ -1,0 +1,82 @@
+### TEST GET / Website
+GET http://localhost:8081
+
+
+### TEST GET /ETHEMSWEBSITE/DASHBOARD
+GET http://localhost:8081/ethemswebsite/dashboard
+
+
+### TEST GET / api/data
+GET http://localhost:8081/api/data
+
+
+### Data Endpoint for adding a user
+POST http://localhost:8081/api/data2
+Content-Type: application/json
+
+{
+    "name": "Ethemski"
+}
+
+### 
+DELETE http://localhost:8081/api/data2
+
+
+###
+GET http://localhost:8081/api/data2
+
+
+////////////////////////////////////////////////////
+
+
+### GET/
+GET http://localhost:8081
+
+
+###
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+    "username": "hello@gmail.com",
+    "password": "123123123"
+}
+
+
+###
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+    "username": "hello@gmail.com",
+    "password": "123123123"
+    //"username": "kanidagli_@hotmail.com",
+    //"password": "Kanidagli1@"
+}
+
+
+### Fetch all todos GET /todos (protected)
+GET http://localhost:8081/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDMyNjE5LCJleHAiOjE3NDYxMTkwMTl9.TVKB9IT_EHKiPc5q6S2_gXD2YqieDduOpISqsrn0w3A
+
+### Create a new todo POST /todos
+POST http://localhost:8081/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDMyNjE5LCJleHAiOjE3NDYxMTkwMTl9.TVKB9IT_EHKiPc5q6S2_gXD2YqieDduOpISqsrn0w3A
+Content-Type: application/json
+
+{
+    "task": "Finish coding the projects"
+}
+
+### Edit a todo
+PUT http://localhost:8081/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDMyNjE5LCJleHAiOjE3NDYxMTkwMTl9.TVKB9IT_EHKiPc5q6S2_gXD2YqieDduOpISqsrn0w3A
+Content-Type: application/json
+
+{
+    "completed": 1
+}
+
+### Delete todo
+DELETE https://localhost:8081/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MDMyNjE5LCJleHAiOjE3NDYxMTkwMTl9.TVKB9IT_EHKiPc5q6S2_gXD2YqieDduOpISqsrn0w3A
