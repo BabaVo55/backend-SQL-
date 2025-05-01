@@ -56,3 +56,13 @@ app.use('/todos', authMiddleware, todoRoutes)
 app.listen(PORT, () => {
     console.log('hello backend: Port: ' + PORT)
 })
+
+
+// We will now begin phase 4 where 3 things will need changing to reach enterprize  level:
+// 1. The Database - SqlLight - MySql or PostgresSql
+// 2. No longer writing out custom Sql queries - will be using a ORM (Object Relational Mapper)
+//  / Its a middleman between our javascript and Postgres ->PRISMA<-
+// 3. We will dockerize our entire project, in chapter 3 we had our database and server as the same entity, in This phase it will
+// / be two separate environments, that means our server will need to communicate with external database both will need independent docker
+// / / environment. meaning if server breaks it does'nt mean your data base has to completely restart. our database will be able to
+// / / / persist data that much more effectively. THIS IS BEST PRACTICE!!!!
