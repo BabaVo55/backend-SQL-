@@ -32,3 +32,5 @@ model Todo {
 
 // Prisma will help with migration. ORM's allows. Essentially its a record of all the modifications made to the data base, when 
 // / you run your migrations, all instances of your database is updated to reflect these changes.
+
+// When we create our first PostgreSQL database/environment, it will format our database to match the new Schema defined above.
