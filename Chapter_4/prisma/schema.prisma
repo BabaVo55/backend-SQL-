@@ -21,3 +21,14 @@ model User {
   todos     Todos[]
 }
 
+model Todo {
+  id        Int @id @default(autoincrement())
+  task      String
+  completed Boolean @default(false)
+  userId    Int
+  user      User  @relation(fields: [userId], references: [id])
+}
+
+
+// Prisma will help with migration. ORM's allows. Essentially its a record of all the modifications made to the data base, when 
+// / you run your migrations, all instances of your database is updated to reflect these changes.
