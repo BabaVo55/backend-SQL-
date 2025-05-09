@@ -16,3 +16,10 @@ RUN npm install
 
 # Finally rest of the application code
 COPY . .
+
+# Expose the port that the app runs on
+# We need to map External port to Internal port - worm hole between our real environment and docker container/environment.
+EXPOSE 8081
+
+# Define the command to run your application
+CMD ["node", "./src/server.js"]

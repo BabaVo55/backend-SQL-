@@ -15,20 +15,19 @@ datasource db {
 }
 
 model User {
-  id        Int @id @default(autoincrement())
-  username  String  @unique
-  password  String
-  todos     Todo[]
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  todos    Todo[]
 }
 
 model Todo {
-  id        Int @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   task      String
   completed Boolean @default(false)
   userId    Int
-  user      User  @relation(fields: [userId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
 }
-
 
 // Prisma will help with migration. ORM's allows. Essentially its a record of all the modifications made to the data base, when 
 // / you run your migrations, all instances of your database is updated to reflect these changes.
